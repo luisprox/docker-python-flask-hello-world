@@ -1,6 +1,6 @@
 # Base image
 # https://hub.docker.com/_/python
-ARG REP_TAG="3.8.6-alpine"
+ARG REP_TAG="3.8.6-slim-buster"
 FROM python:${REP_TAG}
 
 # Project args
