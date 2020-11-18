@@ -35,7 +35,7 @@ build:
 build-docker:
 	echo $(APP_NAME) $(APP_PORT) $(APP_USERNAME)
 	docker image build -t $(IMAGE_NAME) \
-		--build-arg EXE_REP_TAG=$(REP_TAG) \
+		--build-arg REP_TAG=$(REP_TAG) \
 		--build-arg UPDATE_ENABLE=$(UPDATE_ENABLE) \
 		--build-arg PRJ_NAME=$(PRJ_NAME) \
 		--build-arg PRJ_DESCRIPTION=$(PRJ_DESCRIPTION) \
@@ -49,7 +49,7 @@ build-docker:
 build-docker-exe:
 	echo $(APP_NAME) $(APP_PORT) $(APP_USERNAME)
 	docker image build -t $(EXE_IMAGE_NAME) -f DockerfileExe \
-		--build-arg REP_TAG=$(EXE_REP_TAG) \
+		--build-arg EXE_REP_TAG=$(EXE_REP_TAG) \
 		--build-arg UPDATE_ENABLE=$(UPDATE_ENABLE) \
 		--build-arg PRJ_NAME=$(PRJ_NAME) \
 		--build-arg PRJ_DESCRIPTION=$(PRJ_DESCRIPTION) \
