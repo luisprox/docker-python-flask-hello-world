@@ -15,6 +15,8 @@ $ make init
 $ make run
 ```
 
+**Note:** windows version *make.bat* was not tested.
+
 # Running inside Docker Container
 
 Installation
@@ -29,6 +31,8 @@ Run using Makefile
 $ make build-docker
 $ make run-docker
 ```
+
+**Note:** make docker configured for linux only.
 
 # Customization parameters
 

@@ -1,0 +1,8 @@
+pyinstaller
+pylint
+pytest
+pytest-cov
+pytest-benchmark
+bandit
+sphinx
+tinyaes

@@ -1,0 +1,50 @@
+# Base image for running exe
+# https://hub.docker.com/_/debian
+ARG EXE_REP_TAG="buster-slim"
+FROM debian:${EXE_REP_TAG}
+
+# Project args
+ARG UPDATE_ENABLE=false
+ARG PRJ_NAME="Webserver"
+ARG PRJ_DESCRIPTION="Container to run a webserver exe"
+ARG PRJ_VERSION="0.1.0"
+ARG APP_NAME=hello
+ARG APP_PORT=34040
+ARG APP_USER=user
+
+# Logs forwarding
+RUN ln -sf /dev/stdout /dev/stderr
+
+# Descriptions
+LABEL vendor="ACME" \
+      project=${PRJ_NAME} \
+      version=${PRJ_VERSION} \
+      description=${PRJ_DESCRIPTION}
+
+# Environment variables
+ENV PORT=${APP_PORT} APP=${APP_NAME}
+
+# App to project folder
+WORKDIR /usr/local/bin/
+COPY ./dist/${APP_NAME} ./${APP_NAME}
+
+# Non-root user
+RUN addgroup --system ${APP_NAME} && \
+    adduser --no-create-home --system ${APP_USER} && \
+    adduser ${APP_USER} ${APP_NAME} && \
+    chown ${APP_USER}:${APP_NAME} /usr/local/bin/${APP_NAME} && \
+    chmod 770 /usr/local/bin/${APP_NAME}
+
+# App webserver port
+EXPOSE ${APP_PORT}/tcp
+
+# OS update
+RUN if [ "${UPDATE_ENABLE}" = "true" ]; \
+    then apt-get update && apt-get dist-upgrade -y; \
+    else echo "No OS update"; \
+    fi
+
+# App user and cmd
+USER ${APP_USER}
+#ENTRYPOINT ["app"]
+CMD ["sh", "-c", "./${APP}"]
