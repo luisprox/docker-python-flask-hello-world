@@ -1,0 +1,17 @@
+The following components are used in this project:
+
+Python
+https://www.python.org/
+Dual Licensed under the PSF License Agreement and the Zero-Clause BSD license.
+
+Flask
+https://github.com/bassjobsen/Bootstrap-3-Typeahead
+Licensed under BSD License
+
+Docker
+https://www.docker.com/
+Licensed under the Apache License, Version 2.0
+
+hello-world-python template
+https://github.com/datawire/hello-world-python
+Licensed under the Apache License, Version 2.0
