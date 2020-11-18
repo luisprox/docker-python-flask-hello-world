@@ -1,23 +1,24 @@
 # Customize project name, python version etc. in the variables bellow
 	# Container with python
+	# `cat APP_NAME`
 IMAGE_NAME=my-python
-CONTAINER_NAME=hello
+CONTAINER_NAME=$(`cat APP_NAME`)
 REP_TAG=3.8.6-alpine
 	# Container with exe
 EXE_IMAGE_NAME=my-python-exe
-EXE_CONTAINER_NAME=hello-exe
+EXE_CONTAINER_NAME=$(CONTAINER_NAME)-exe
 EXE_REP_TAG=buster-slim
 	# Overall container flags
 UPDATE_ENABLE=false
 RESTART=unless-stopped
 	# Project labels
-PRJ_NAME=`cat APP_NAME`
-PRJ_DESCRIPTION=`cat DESCRIPTION`
-PRJ_VERSION=`cat VERSION`
+PRJ_NAME=$(CONTAINER_NAME)
+PRJ_DESCRIPTION=$(`cat DESCRIPTION`)
+PRJ_VERSION=$(`cat VERSION`)
 	# App parameters
 	# NOTE: APP_NAME must be the name of project main folder
 	# NOTE: USER must follow NAME_REGEX="^[a-z][-a-z0-9_]*\$"
-APP_NAME=$(PRJ_NAME)
+APP_NAME=$(CONTAINER_NAME)
 APP_PORT=34040
 APP_USER=pyuser
 
