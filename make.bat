@@ -2,9 +2,7 @@
 
 REM Windows Makefile
 
-set APP_NAME=hello
-set BUILDDIR=build
-set KEY=DA20180514170054
+set /p APP_NAME=<APP_NAME
 
 if "%1" == "" goto help
 
