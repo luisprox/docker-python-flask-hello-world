@@ -41,7 +41,7 @@ Example using different python container with different webserver port
 $ make build-docker REP_TAG=3.9-slim-buster APP_PORT=4040
 $ make run-docker APP_PORT=4040
 ```
-See [Makefile][Makefile] for more customizations.
+See [Makefile](Makefile) for more customizations.
 
 # License
 
