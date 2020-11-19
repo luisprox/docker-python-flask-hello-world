@@ -65,7 +65,6 @@ clean:
 	rm -R ./dist
 	rm -R ./$(APP_NAME).spec
 
-
 # TODO build sphynx docs
 .PHONY: docs
 docs:
@@ -90,7 +89,8 @@ run:
 # run exe (after build)
 .PHONY: run-exe
 run-exe:
-	./dist/$(APP_NAME)
+	cp APP_NAME dist
+	cd ./dist && ./$(APP_NAME)
 
 # run docker container
 .PHONY: run-docker
