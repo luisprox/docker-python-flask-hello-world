@@ -10,6 +10,10 @@ Release descriptors:
 * [MAINTENANCE] - update in libraries, auxiliary files and program comments
 * [DOCUMENTATION] - update in documentation (/doc folder)
 
+## 0.2.1 / 2020-11-19
+[BUGFIX] Makefile corrections
+[MAINTENANCE] Created ADD_FILE, DESCRIPTION and VERSION for unique config
+
 ## 0.2.0 / 2020-11-18
 [FEATURE] Added option to build exe with pyinstaller
 [FEATURE] Added option to build and run docker container for exe
